@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 114742e2174c0e94daaa6771fe6e4e3b
+guid: 7211742adf554d04ba5881e49fbb3226
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Lakers
+  - Righteous
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

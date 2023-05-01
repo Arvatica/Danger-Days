@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0b686a68fb6683d40ad6b616e511eb41
+guid: ab2ab200d06da584d9dece1e1a313cfa
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Josefin Sans Thin
+  - Audiowide
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fdccf295d2859574586837ab34f8db66
+guid: 03dad1eb76e68324386c1bb642b6386f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - New Alenia
+  - CALINOR PEGASUS
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

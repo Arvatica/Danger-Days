@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42c55778700a8804f845ebb25e34f5c6
+guid: 7d5469403274ed64394433cbb6fa0580
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Akashi
+  - Centauri
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
