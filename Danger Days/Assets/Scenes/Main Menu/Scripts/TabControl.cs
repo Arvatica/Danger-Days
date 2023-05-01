@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using TMPro;
 
 [RequireComponent(typeof(Image))]
 
@@ -10,14 +11,12 @@ public class TabControl : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 {
     public TabGroup tabGroup;
     public Image BG;
-    public Text Text;
+    public TMP_Text text;
 
     void Start()
     {
         BG = GetComponent<Image>();
-        Text = GetComponent<Text>();
         tabGroup.Subscribe(this);
-
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -27,6 +26,7 @@ public class TabControl : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
 
     public void OnPointerExit(PointerEventData eventData)
     {
+
         tabGroup.OnTabExit(this);
     }
 
