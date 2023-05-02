@@ -20,7 +20,9 @@ public class TabGroup : MonoBehaviour
         }
 
         tabButtons.Add(button);
+
     }
+
 
     public void OnTabEnter(TabControl button)
     {
