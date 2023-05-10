@@ -1,0 +1,126 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: BrazoD Sup
+    m_Hash: 731773862
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: BrazoD Sup
+      m_Hash: 731773862
+      m_Sprite: {fileID: -9149842328369992346, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -9149842328369992346, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: BrazoD Inf
+    m_Hash: 667853771
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: BrazoD Inf
+      m_Hash: 667853771
+      m_Sprite: {fileID: 7157400206634697805, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 7157400206634697805, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: BrazoI Sup
+    m_Hash: 319635223
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: BrazoI Sup
+      m_Hash: 319635223
+      m_Sprite: {fileID: -3843035704228285820, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -3843035704228285820, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: BrazoI Inf
+    m_Hash: 526280570
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: BrazoI Inf
+      m_Hash: 526280570
+      m_Sprite: {fileID: 5292889337253131758, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5292889337253131758, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: Cabeza
+    m_Hash: 738881901
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Cabeza
+      m_Hash: 738881901
+      m_Sprite: {fileID: 3579207178424919611, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3579207178424919611, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: PiernaD Sup
+    m_Hash: 1067304930
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: PiernaD Sup
+      m_Hash: 1067304930
+      m_Sprite: {fileID: 1708402722719168585, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1708402722719168585, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: PiernaD Inf
+    m_Hash: 869179279
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: PiernaD Inf
+      m_Hash: 869179279
+      m_Sprite: {fileID: 1011605656047882852, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1011605656047882852, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: PiernaI Sup
+    m_Hash: 118293331
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: PiernaI Sup
+      m_Hash: 118293331
+      m_Sprite: {fileID: -5468138552964866465, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -5468138552964866465, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: PiernaI Inf
+    m_Hash: 190733118
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: PiernaI Inf
+      m_Hash: 190733118
+      m_Sprite: {fileID: 4230319106742329608, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4230319106742329608, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  - m_Name: Torso
+    m_Hash: 647926657
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: Torso
+      m_Hash: 647926657
+      m_Sprite: {fileID: 5750804423362168130, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 5750804423362168130, guid: 3c14998be5f935749b8fcaad6833a440, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 1
+  m_PrimaryLibraryGUID: 
