@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class PistolBullet : MonoBehaviour
 {
+    [HideInInspector] public PlayerData Data;
+    [HideInInspector] public Rigidbody2D PistolRB;
 
-    public PlayerData Data;
-
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        Data = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>();
+        PistolRB = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
-    void Update()
+    void start()
     {
-
+        PistolRB.velocity = transform.right * Data.pistolBulletSpeed;
     }
 }

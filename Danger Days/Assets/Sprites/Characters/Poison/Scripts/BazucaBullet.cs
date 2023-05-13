@@ -5,11 +5,11 @@ using UnityEngine;
 public class BazucaBullet : MonoBehaviour
 {
 
-    public PlayerData Data;
-    // Start is called before the first frame update
-    void Start()
-    {
+    [HideInInspector] public PlayerData Data;
 
+    void Awake()
+    {
+        Data = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>();
     }
 
     // Update is called once per frame

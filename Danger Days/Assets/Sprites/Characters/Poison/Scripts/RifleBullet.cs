@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class RifleBullet : MonoBehaviour
 {
+    [HideInInspector] public PlayerData Data;
 
-    public PlayerData Data;
-    // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-
+        Data = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>();
     }
 
     // Update is called once per frame
