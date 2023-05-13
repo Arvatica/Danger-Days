@@ -34,12 +34,15 @@ public class PlayerData : MonoBehaviour
     [Header("Weapon Manager")]
     [Header("Pistol")]
     public float pistolBulletSpeed;
+    public float pistolBulletDamage;
     [Space(5)]
     [Header("Rifle")]
     public float rifleBulletSpeed;
+    public float rifleBulletDamage;
     [Space(5)]
     [Header("Bazuca")]
     public float bazucaBulletSpeed;
+    public float bazucaBulletDamage;
 
 
     private void OnValidate()

@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
 
     public float lastGroundTime;
 
+    public int WeaponEquip;
+
     //Config
 
     [Header("RigidBody")]
@@ -26,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Layer & Tags")]
     [SerializeField] LayerMask groundLayer;
+
+    [Header("Bullets")]
+    [SerializeField] GameObject PistolBullet;
+    [SerializeField] GameObject RifleBullet;
+    [SerializeField] GameObject BazucaBullet;
 
     //Codigo
 
@@ -52,6 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
+            WeaponEquip = 2;
             Shoot();
         }
 
@@ -70,7 +78,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Shoot()
     {
-
+        switch (WeaponEquip)
+        {
+            case 1:
+                Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
+                break;
+            case 2:
+                Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
+                break;
+            case 3:
+                Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
+                break;
+        }
     }
 
 

@@ -11,10 +11,6 @@ public class PistolBullet : MonoBehaviour
     {
         Data = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>();
         PistolRB = GetComponent<Rigidbody2D>();
-    }
-
-    void start()
-    {
         PistolRB.velocity = transform.right * Data.pistolBulletSpeed;
     }
 }
