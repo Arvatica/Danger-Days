@@ -31,6 +31,17 @@ public class PlayerData : MonoBehaviour
 
 
 
+    [Header("Weapon Manager")]
+    [Header("Pistol")]
+    public int pistolBulletSpeed;
+    [Space(5)]
+    [Header("Rifle")]
+    public int rifleBulletSpeed;
+    [Space(5)]
+    [Header("Bazuca")]
+    public int bazucaBulletSpeed;
+
+
     private void OnValidate()
     {
         AccAmount = (50 * movementAcceleration) / movementMaxSpeed;

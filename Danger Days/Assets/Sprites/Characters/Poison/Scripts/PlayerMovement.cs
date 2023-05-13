@@ -31,19 +31,31 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        lastGroundTime -= Time.deltaTime;
 
+        //Movimiento
+
+        lastGroundTime -= Time.deltaTime;
         moveInput = Input.GetAxisRaw("Horizontal");
+
+        // Salto
 
         if (isGrounded())
         {
             lastGroundTime = 0.1f;
         }
-
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
             jump();
         }
+
+        //Disparo
+
+        if (Input.GetButtonDown("Fire1"))
+        {
+            Shoot();
+        }
+
+        // Flip
 
         flip();
     }
@@ -54,7 +66,12 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
+    // Disparo
 
+    void Shoot()
+    {
+
+    }
 
 
 
