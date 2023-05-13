@@ -4,20 +4,30 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+
+    //Variables
+
     public PlayerData Data;
 
     private float moveInput;
 
     public float lastGroundTime;
 
+    //Config
+
     [Header("RigidBody")]
     [SerializeField] Rigidbody2D playerRB;
 
-    [Header("GroundCheck")]
+    [Header("Checks")]
     [SerializeField] Transform groundCheck;
+    [SerializeField] Transform pistolPoint;
+    [SerializeField] Transform riflePoint;
+    [SerializeField] Transform bazucaPoint;
 
     [Header("Layer & Tags")]
     [SerializeField] LayerMask groundLayer;
+
+    //Codigo
 
     void Update()
     {
@@ -43,20 +53,22 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
-    bool isGrounded()
-    {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
-    }
 
-    void jump()
-    {
-        playerRB.velocity = new Vector2(playerRB.velocity.x, Data.jumpForce);
 
-        if (Input.GetButtonUp("Jump") && playerRB.velocity.y > 0f)
-        {
-            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);
-        }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //Movimiento sexual
 
     void Movement()
     {
@@ -82,16 +94,36 @@ public class PlayerMovement : MonoBehaviour
 
     }
 
+    //Salto del personaje
+
+    void jump()
+    {
+        playerRB.velocity = new Vector2(playerRB.velocity.x, Data.jumpForce);
+
+        if (Input.GetButtonUp("Jump") && playerRB.velocity.y > 0f)
+        {
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);
+        }
+    }
+
+    //GroundChecker
+
+    bool isGrounded()
+    {
+        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+    }
+
+    //Girar el personaje segun direccion
 
     void flip()
     {
         if (Data.isFacingRight && moveInput < 0f || !Data.isFacingRight && moveInput > 0f)
         {
             Data.isFacingRight = !Data.isFacingRight;
-            Vector3 localScale = transform.localScale;
-            localScale.x *= -1f;
-            transform.localScale = localScale;
+            transform.Rotate(0, 180, 0);
         }
     }
+
+
 
 }

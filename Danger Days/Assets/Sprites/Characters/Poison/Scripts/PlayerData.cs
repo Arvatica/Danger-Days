@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour
 {
+    [Header("Stats")]
+    public float Health;
+
+
+
     [Header("Movement")]
     public float movementMaxSpeed;
     public float movementAcceleration;
@@ -11,15 +16,20 @@ public class PlayerData : MonoBehaviour
     [Space(5)]
     [Range(0.01f, 1)] public float AcceAir;
     [Range(0.01f, 1)] public float DeaccAir;
-
     [HideInInspector] public float AccAmount;
     [HideInInspector] public float DeaccAmount;
+
+
 
     [Header("Jump")]
     public float jumpForce;
 
+
+
     [Header("Facing")]
     public bool isFacingRight = true;
+
+
 
     private void OnValidate()
     {
