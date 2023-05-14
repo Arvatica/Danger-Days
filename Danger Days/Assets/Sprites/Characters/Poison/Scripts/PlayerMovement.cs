@@ -41,17 +41,21 @@ public class PlayerMovement : MonoBehaviour
 
     //Codigo
 
+    void Start()
+    {
+        WeaponEquip = 0;
+    }
+
     void Update()
     {
 
         // Weapon Wheel
-
         if (Input.GetKeyDown(KeyCode.Tab) && WeaponWheel == false)
         {
             WeaponWheel = !WeaponWheel;
             wheelControl.SetActive(true);
         }
-        else if (Input.GetKeyDown(KeyCode.Tab) && WeaponWheel == true)
+        if (Input.GetKeyUp(KeyCode.Tab) && WeaponWheel == true)
         {
             WeaponWheel = !WeaponWheel;
             wheelControl.SetActive(false);
@@ -77,7 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1"))
         {
-            WeaponEquip = 2;
             Shoot();
         }
 
@@ -91,6 +94,12 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
+    // Pistola activa
+    public void WeaponActive(int WeaponActive)
+    {
+        WeaponEquip = WeaponActive;
+
+    }
 
     // Disparo
 
@@ -98,10 +107,10 @@ public class PlayerMovement : MonoBehaviour
     {
         switch (WeaponEquip)
         {
-            case 1:
+            case 0:
                 Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
                 break;
-            case 2:
+            case 1:
                 Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
                 break;
             case 3:

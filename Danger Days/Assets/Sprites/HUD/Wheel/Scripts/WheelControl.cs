@@ -25,7 +25,6 @@ public class WheelControl : MonoBehaviour
         angle = Mathf.Atan2(normalisedMousePosition.y, normalisedMousePosition.x) * Mathf.Rad2Deg;
         angle = (angle + 315) % 360;
         selection = (int)((angle / 90));
-        Debug.Log(selection);
 
         if (selection != previousSelected)
         {
@@ -34,8 +33,13 @@ public class WheelControl : MonoBehaviour
             previousSelected = selection;
             wheelItems = MenuItems[selection].GetComponent<WheelItems>();
             wheelItems.Selected();
+            Weapon();
         }
 
-
+    }
+    public void Weapon()
+    {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>().WeaponActive(selection);
+        Debug.Log(selection);
     }
 }
