@@ -15,8 +15,6 @@ public class PlayerMovement : MonoBehaviour
 
     public int WeaponEquip;
 
-    private bool WeaponWheel = false;
-
     //Config
 
     [Header("RigidBody")]
@@ -37,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject BazucaBullet;
 
     [Header("Other")]
-    [SerializeField] GameObject wheelControl;
+    [SerializeField] public GameObject wheelControl;
 
     //Codigo
 
@@ -50,15 +48,15 @@ public class PlayerMovement : MonoBehaviour
     {
 
         // Weapon Wheel
-        if (Input.GetKeyDown(KeyCode.Tab) && WeaponWheel == false)
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
-            WeaponWheel = !WeaponWheel;
-            wheelControl.SetActive(true);
+            wheelControl.GetComponent<WheelControl>().canSelect();
+            wheelControl.GetComponent<WheelControl>().Open();
         }
-        if (Input.GetKeyUp(KeyCode.Tab) && WeaponWheel == true)
+        if (Input.GetKeyUp(KeyCode.Tab))
         {
-            WeaponWheel = !WeaponWheel;
-            wheelControl.SetActive(false);
+            wheelControl.GetComponent<WheelControl>().canSelect();
+            wheelControl.GetComponent<WheelControl>().Close();
         }
 
         // Movimiento
@@ -94,7 +92,8 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
-    // Pistola activa
+    // Receptor de seleccion de arma
+
     public void WeaponActive(int WeaponActive)
     {
         WeaponEquip = WeaponActive;
@@ -118,18 +117,6 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
     //Movimiento sexual
 
