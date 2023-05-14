@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int WeaponEquip;
 
+    private bool WeaponWheel = false;
+
     //Config
 
     [Header("RigidBody")]
@@ -34,12 +36,28 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject RifleBullet;
     [SerializeField] GameObject BazucaBullet;
 
+    [Header("Other")]
+    [SerializeField] GameObject wheelControl;
+
     //Codigo
 
     void Update()
     {
 
-        //Movimiento
+        // Weapon Wheel
+
+        if (Input.GetKeyDown(KeyCode.Tab) && WeaponWheel == false)
+        {
+            WeaponWheel = !WeaponWheel;
+            wheelControl.SetActive(true);
+        }
+        else if (Input.GetKeyDown(KeyCode.Tab) && WeaponWheel == true)
+        {
+            WeaponWheel = !WeaponWheel;
+            wheelControl.SetActive(false);
+        }
+
+        // Movimiento
 
         lastGroundTime -= Time.deltaTime;
         moveInput = Input.GetAxisRaw("Horizontal");
