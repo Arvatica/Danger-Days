@@ -101,6 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Data: {fileID: 0}
   PistolRB: {fileID: 0}
+  HitEffect: {fileID: 2935977545764787448, guid: 03b1fd1628696064cb11d0de5b5aa156, type: 3}
 --- !u!50 &1579318930319199925
 Rigidbody2D:
   serializedVersion: 4
@@ -132,7 +133,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.013536453}

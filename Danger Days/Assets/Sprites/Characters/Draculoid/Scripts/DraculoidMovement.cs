@@ -53,4 +53,25 @@ public class DraculoidMovement : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawLine(feetPoint.transform.position, feetPoint.transform.position + Vector3.down * GroundDistance);
     }
+
+    // Funcion para recibir dmg
+
+    public void getDamage(int Damage)
+    {
+        Data.Health -= Damage;
+
+        if (Data.Health <= 0)
+        {
+            Die();
+        }
+    }
+
+    // FUncion para morir // Destruir
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
+
 }

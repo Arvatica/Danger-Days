@@ -173,4 +173,24 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(0, 180, 0);
         }
     }
+
+    // Funcion para recibir dmg
+
+    public void getDamage(int Damage)
+    {
+        Data.Health -= Damage;
+
+        if (Data.Health <= 0)
+        {
+            Die();
+        }
+    }
+
+    // FUncion para morir // Destruir
+
+    void Die()
+    {
+        Destroy(gameObject);
+    }
+
 }

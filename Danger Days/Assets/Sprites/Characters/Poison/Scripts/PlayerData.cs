@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     [Header("Stats")]
-    public float Health;
+    public int Health;
 
     [Header("Objects")]
     public float maxMutagen;
@@ -37,15 +37,15 @@ public class PlayerData : MonoBehaviour
     [Header("Weapon Manager")]
     [Header("Pistol")]
     public float pistolBulletSpeed;
-    public float pistolBulletDamage;
+    public int pistolBulletDamage;
     [Space(5)]
     [Header("Rifle")]
     public float rifleBulletSpeed;
-    public float rifleBulletDamage;
+    public int rifleBulletDamage;
     [Space(5)]
     [Header("Bazuca")]
     public float bazucaBulletSpeed;
-    public float bazucaBulletDamage;
+    public int bazucaBulletDamage;
 
 
     private void OnValidate()

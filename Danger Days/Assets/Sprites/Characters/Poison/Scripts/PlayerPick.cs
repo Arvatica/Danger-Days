@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerPick : MonoBehaviour
 {
-    [Header("Puntajes")]
+    [Header("Variables")]
     [SerializeField] public int Carbon;
 
 
