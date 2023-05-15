@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
 
-    //Variables
+    // Variables
 
     public PlayerData Data;
 
@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public int WeaponEquip;
 
-    //Config
+    // Config
 
     [Header("RigidBody")]
     [SerializeField] Rigidbody2D playerRB;
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Other")]
     [SerializeField] public GameObject wheelControl;
 
-    //Codigo
+    // Codigo
 
     void Start()
     {
@@ -75,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
             jump();
         }
 
-        //Disparo
+        // Disparo
 
         if (Input.GetButtonDown("Fire1"))
         {
@@ -118,7 +118,7 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //Movimiento sexual
+    // Movimiento sexual
 
     void Movement()
     {
@@ -156,14 +156,14 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    //GroundChecker
+    // GroundChecker
 
     bool isGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
     }
 
-    //Girar el personaje segun direccion
+    // Girar el personaje segun direccion
 
     void flip()
     {
@@ -173,7 +173,4 @@ public class PlayerMovement : MonoBehaviour
             transform.Rotate(0, 180, 0);
         }
     }
-
-
-
 }

@@ -7,6 +7,9 @@ public class PlayerData : MonoBehaviour
     [Header("Stats")]
     public float Health;
 
+    [Header("Objects")]
+    public float maxMutagen;
+    public float maxXeniti;
 
 
     [Header("Movement")]
