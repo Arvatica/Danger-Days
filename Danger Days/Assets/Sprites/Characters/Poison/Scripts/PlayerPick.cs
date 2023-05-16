@@ -7,12 +7,11 @@ public class PlayerPick : MonoBehaviour
     [Header("Variables")]
     [SerializeField] public int Carbon;
 
-
     private void OnTriggerEnter2D(Collider2D Touch)
     {
         switch (Touch.tag)
         {
-            case "Coin":
+            case "Carbon":
                 Destroy(Touch.gameObject);
                 break;
         }

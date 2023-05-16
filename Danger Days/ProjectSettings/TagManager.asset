@@ -6,6 +6,7 @@ TagManager:
   tags:
   - HealthBar
   - Draculoid
+  - Carbon
   layers:
   - Default
   - TransparentFX
