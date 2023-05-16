@@ -12,7 +12,12 @@ public class DraculoidData : MonoBehaviour
     public float draculoidSpeed;
     public float horizontal = 1;
 
+    [Header("Disparos")]
 
+    public float PistolRadious;
+    public float RifleRadious;
+    public float timing;
+    public int WeaponEquip;
 
     [Header("Weapon Manager")]
     [Header("Pistol")]
@@ -22,5 +27,6 @@ public class DraculoidData : MonoBehaviour
     [Header("Rifle")]
     public float rifleBulletSpeed;
     public int rifleBulletDamage;
+    public int rifleQuantity;
 
 }

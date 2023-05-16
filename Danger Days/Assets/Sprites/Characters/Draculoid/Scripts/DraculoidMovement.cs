@@ -7,7 +7,9 @@ public class DraculoidMovement : MonoBehaviour
     //Variables
 
     public DraculoidData Data;
+    private GameObject Poison;
     private bool isFacingRight = true;
+    private float timer;
 
     // Config
 
@@ -21,6 +23,62 @@ public class DraculoidMovement : MonoBehaviour
 
     [Header("Gizmos")]
     [SerializeField] float GroundDistance;
+
+    [Header("Bullets")]
+    [SerializeField] GameObject EPistolBullet;
+    [SerializeField] GameObject ERifleBullet;
+
+    void Awake()
+    {
+        Poison = GameObject.FindGameObjectWithTag("Player");
+        timer = Data.timing;
+    }
+
+    void Update()
+    {
+        float distance = Vector2.Distance(transform.position, Poison.transform.position);
+        Debug.Log(distance);
+
+        if (distance < Data.PistolRadious)
+        {
+            timer -= Time.deltaTime;
+            Data.WeaponEquip = 0;
+
+            if (timer < 0)
+            {
+                timer = Data.timing;
+                Shoot();
+            }
+        }
+
+        else if (distance > Data.PistolRadious && distance < Data.RifleRadious)
+        {
+            timer -= Time.deltaTime;
+            Data.WeaponEquip = 1;
+
+            if (timer < 0)
+            {
+                Shoot();
+            }
+            // Poner corutina
+        }
+    }
+
+    // Disparo
+
+    void Shoot()
+    {
+        switch (Data.WeaponEquip)
+        {
+            case 0:
+                Instantiate(EPistolBullet, pistolPoint.position, Quaternion.identity);
+                break;
+            case 1:
+                Instantiate(ERifleBullet, riflePoint.position, Quaternion.identity);
+                break;
+        }
+    }
+
 
 
     // Movimiento // Detecta si hay o no vacio y/o colision 

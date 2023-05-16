@@ -113,7 +113,11 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
                 break;
             case 3:
-                Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
+                if (Data.bazucaMaxAmmo > 0)
+                {
+                    Data.bazucaMaxAmmo -= 1;
+                    Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
+                }
                 break;
         }
     }
@@ -179,6 +183,8 @@ public class PlayerMovement : MonoBehaviour
     public void getDamage(int Damage)
     {
         Data.Health -= Damage;
+        Healthbar healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Healthbar>();
+        healthbar.setHealth();
 
         if (Data.Health <= 0)
         {

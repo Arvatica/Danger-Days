@@ -46,6 +46,7 @@ public class PlayerData : MonoBehaviour
     [Header("Bazuca")]
     public float bazucaBulletSpeed;
     public int bazucaBulletDamage;
+    public int bazucaMaxAmmo;
 
 
     private void OnValidate()

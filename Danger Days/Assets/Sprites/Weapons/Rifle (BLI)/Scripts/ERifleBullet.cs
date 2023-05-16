@@ -5,25 +5,32 @@ using UnityEngine;
 public class ERifleBullet : MonoBehaviour
 {
     [HideInInspector] public DraculoidData Data;
+    [HideInInspector] public PlayerMovement Player;
     [HideInInspector] public Rigidbody2D ERifleRB;
 
     [Header("Adicionales")]
     [SerializeField] public GameObject HitEffect;
+    [SerializeField] public GameObject Poison;
 
     void Awake()
     {
         Data = GameObject.FindGameObjectWithTag("Draculoid").GetComponent<DraculoidData>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+        Poison = GameObject.FindGameObjectWithTag("Player");
         ERifleRB = GetComponent<Rigidbody2D>();
-        ERifleRB.velocity = transform.right * Data.rifleBulletSpeed;
+
+        Vector3 direction = Player.transform.position - transform.position;
+        ERifleRB.velocity = new Vector2(direction.x, direction.y).normalized * Data.pistolBulletSpeed;
+
+        float rotation = Mathf.Atan2(-direction.y, -direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, rotation);
     }
 
     // Funcion de deteccion de colision Bala
 
     void OnTriggerEnter2D(Collider2D RifleHit)
     {
-        PlayerMovement Player = RifleHit.GetComponent<PlayerMovement>();
-
-        if (RifleHit.name != "EPistolaBala(Clone)" && RifleHit.name != "ERifleBala(Clone)")
+        if (RifleHit.name != "EPistolaBala(Clone)" && RifleHit.name != "ERifleBala(Clone)" && RifleHit.tag != "Draculoid")
         {
             if (Player != null)
             {

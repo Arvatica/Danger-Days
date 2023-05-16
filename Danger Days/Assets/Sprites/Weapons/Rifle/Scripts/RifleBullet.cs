@@ -23,7 +23,7 @@ public class RifleBullet : MonoBehaviour
     {
         DraculoidMovement Draculoid = RifleHit.GetComponent<DraculoidMovement>();
 
-        if (RifleHit.name != "PistolaBala(Clone)" && RifleHit.name != "RifleBala(Clone)" && RifleHit.name != "BazucaBala(Clone)")
+        if (RifleHit.name != "PistolaBala(Clone)" && RifleHit.name != "RifleBala(Clone)" && RifleHit.name != "BazucaBala(Clone)" && RifleHit.tag != "Player")
         {
             if (Draculoid != null)
             {
