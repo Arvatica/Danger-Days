@@ -28,5 +28,6 @@ public class DraculoidData : MonoBehaviour
     public float rifleBulletSpeed;
     public int rifleBulletDamage;
     public int rifleQuantity;
+    public float rifleAttackSpeed;
 
 }

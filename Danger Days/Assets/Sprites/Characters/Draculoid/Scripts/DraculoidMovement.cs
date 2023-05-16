@@ -10,6 +10,7 @@ public class DraculoidMovement : MonoBehaviour
     private GameObject Poison;
     private bool isFacingRight = true;
     private float timer;
+    private float timer2;
 
     // Config
 
@@ -37,12 +38,16 @@ public class DraculoidMovement : MonoBehaviour
     void Update()
     {
         float distance = Vector2.Distance(transform.position, Poison.transform.position);
+
         Debug.Log(distance);
+
+        timer -= Time.deltaTime;
 
         if (distance < Data.PistolRadious)
         {
             timer -= Time.deltaTime;
             Data.WeaponEquip = 0;
+            StopCoroutine(rifleShoot());
 
             if (timer < 0)
             {
@@ -58,10 +63,32 @@ public class DraculoidMovement : MonoBehaviour
 
             if (timer < 0)
             {
-                Shoot();
+                timer = Data.timing;
+                timer2 = 0;
+                StartCoroutine(rifleShoot());
             }
             // Poner corutina
         }
+
+
+    }
+
+    // Corutina Rifle
+
+    IEnumerator rifleShoot()
+    {
+        if (timer2 < Data.rifleQuantity)
+        {
+            timer2 += 1;
+            yield return new WaitForSeconds(Data.rifleAttackSpeed);
+            Shoot();
+            StartCoroutine(rifleShoot());
+        }
+        if (timer > Data.rifleQuantity)
+        {
+            StopCoroutine(rifleShoot());
+        }
+        
     }
 
     // Disparo
