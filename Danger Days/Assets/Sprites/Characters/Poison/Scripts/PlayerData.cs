@@ -5,12 +5,15 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     [Header("Stats")]
-    public int Health;
+    public int MaxHealth;
+    [HideInInspector] public int Health;
 
     [Header("Objects")]
     public int Carbons;
     public int Xenitio;
+    public int XenitioHeal;
     public int Voltageno;
+    public int VoltagenoHeal;
 
     [Header("MaxShit")]
     public int maxXenitio;
@@ -68,5 +71,6 @@ public class PlayerData : MonoBehaviour
         #endregion
 
         bazucaAmmo = bazucaMaxAmmo;
+        Health = MaxHealth;
     }
 }

@@ -16,6 +16,8 @@ public class PlayerMovement : MonoBehaviour
 
     public int WeaponEquip;
 
+    private int ObjectEquip = 0;
+
     // Config
 
     [Header("RigidBody")]
@@ -50,6 +52,7 @@ public class PlayerMovement : MonoBehaviour
     {
 
         // Weapon Wheel
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             wheelControl.GetComponent<WheelControl>().canSelect();
@@ -59,6 +62,22 @@ public class PlayerMovement : MonoBehaviour
         {
             wheelControl.GetComponent<WheelControl>().canSelect();
             wheelControl.GetComponent<WheelControl>().Close();
+        }
+
+        // Cambio de objeto
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            objectChange();
+        }
+
+        // Uso de objeto
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Debug.Log("Use Object");
+            useObject();
+
         }
 
         // Movimiento
@@ -123,6 +142,57 @@ public class PlayerMovement : MonoBehaviour
                     Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
                 }
                 break;
+        }
+    }
+
+
+    // Cambio de objeto
+
+    void objectChange()
+    {
+        if (ObjectEquip == 0)
+        {
+            ObjectEquip = 1;
+            Healthbar healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Healthbar>();
+            healthbar.changeSprite(1);
+        }
+        else if (ObjectEquip == 1)
+        {
+            ObjectEquip = 0;
+            Healthbar healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Healthbar>();
+            healthbar.changeSprite(0);
+        }
+    }
+
+    // Uso de objeto
+
+    void useObject()
+    {
+        if (ObjectEquip == 0 && Data.Xenitio >= 1 && Data.Health != Data.MaxHealth)
+        {
+            Data.Health += Data.XenitioHeal;
+            Data.Xenitio -= 1;
+
+            if (Data.Health > Data.MaxHealth)
+            {
+                Data.Health = Data.MaxHealth;
+            }
+            Healthbar healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Healthbar>();
+            healthbar.setHealth();
+            healthbar.changeSprite(ObjectEquip);
+        }
+        else if (ObjectEquip == 1 && Data.Voltageno >= 1 && Data.Health != Data.MaxHealth)
+        {
+            Data.Health += Data.VoltagenoHeal;
+            Data.Voltageno -= 1;
+            if (Data.Health > Data.MaxHealth)
+            {
+                Data.Health = Data.MaxHealth;
+            }
+            Healthbar healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Healthbar>();
+            healthbar.setHealth();
+            healthbar.changeSprite(ObjectEquip);
+
         }
     }
 
