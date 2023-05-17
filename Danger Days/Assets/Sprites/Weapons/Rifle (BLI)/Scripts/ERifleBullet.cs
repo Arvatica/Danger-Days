@@ -30,7 +30,7 @@ public class ERifleBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D RifleHit)
     {
-        if (RifleHit.name != "EPistolaBala(Clone)" && RifleHit.name != "ERifleBala(Clone)" && RifleHit.tag != "Draculoid")
+        if (RifleHit.tag != "Carbon" && RifleHit.name != "EPistolaBala(Clone)" && RifleHit.name != "ERifleBala(Clone)" && RifleHit.tag != "Draculoid")
         {
             if (Player != null)
             {

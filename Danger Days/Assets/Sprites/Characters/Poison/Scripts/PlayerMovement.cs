@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
     // Variables
 
     public PlayerData Data;
+    public WeaponDisplay WeaponDisplay;
 
     private float moveInput;
 
@@ -42,6 +43,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         WeaponEquip = 0;
+        WeaponDisplay = GameObject.FindGameObjectWithTag("WeaponDisplay").GetComponent<WeaponDisplay>();
     }
 
     void Update()
@@ -97,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
     public void WeaponActive(int WeaponActive)
     {
         WeaponEquip = WeaponActive;
+        WeaponDisplay.sort();
 
     }
 
@@ -116,6 +119,7 @@ public class PlayerMovement : MonoBehaviour
                 if (Data.bazucaAmmo > 0)
                 {
                     Data.bazucaAmmo -= 1;
+                    WeaponDisplay.Quantity.text = "" + Data.bazucaAmmo;
                     Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
                 }
                 break;

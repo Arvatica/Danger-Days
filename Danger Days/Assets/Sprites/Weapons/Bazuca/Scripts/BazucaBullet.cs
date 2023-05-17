@@ -21,7 +21,7 @@ public class BazucaBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D BazucaHit)
     {
-        if (BazucaHit.name != "PistolaBala(Clone)" && BazucaHit.name != "RifleBala(Clone)" && BazucaHit.name != "BazucaBala(Clone)" && BazucaHit.tag != "Player")
+        if (BazucaHit.tag != "Carbon" && BazucaHit.name != "PistolaBala(Clone)" && BazucaHit.name != "RifleBala(Clone)" && BazucaHit.name != "BazucaBala(Clone)" && BazucaHit.tag != "Player")
         {
             DraculoidMovement Draculoid = BazucaHit.GetComponent<DraculoidMovement>();
             if (Draculoid != null)
