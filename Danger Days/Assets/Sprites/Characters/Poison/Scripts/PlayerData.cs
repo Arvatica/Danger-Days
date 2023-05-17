@@ -8,8 +8,14 @@ public class PlayerData : MonoBehaviour
     public int Health;
 
     [Header("Objects")]
-    public float maxMutagen;
-    public float maxXeniti;
+    public int Carbons;
+    public int Xenitio;
+    public int Voltageno;
+
+    [Header("MaxShit")]
+    public int maxXenitio;
+    public int maxVoltageno;
+
 
 
     [Header("Movement")]
@@ -47,6 +53,8 @@ public class PlayerData : MonoBehaviour
     public float bazucaBulletSpeed;
     public int bazucaBulletDamage;
     public int bazucaMaxAmmo;
+    [HideInInspector] public int bazucaAmmo;
+
 
 
     private void OnValidate()
@@ -58,5 +66,7 @@ public class PlayerData : MonoBehaviour
         movementAcceleration = Mathf.Clamp(movementAcceleration, 0.01f, movementMaxSpeed);
         movementDeacceleration = Mathf.Clamp(movementDeacceleration, 0.01f, movementMaxSpeed);
         #endregion
+
+        bazucaAmmo = bazucaMaxAmmo;
     }
 }

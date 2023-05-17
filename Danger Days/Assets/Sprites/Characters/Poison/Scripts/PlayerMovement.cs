@@ -113,9 +113,9 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
                 break;
             case 3:
-                if (Data.bazucaMaxAmmo > 0)
+                if (Data.bazucaAmmo > 0)
                 {
-                    Data.bazucaMaxAmmo -= 1;
+                    Data.bazucaAmmo -= 1;
                     Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
                 }
                 break;
