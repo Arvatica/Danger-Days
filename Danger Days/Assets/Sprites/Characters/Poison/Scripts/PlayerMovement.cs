@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject BazucaBullet;
 
     [Header("Other")]
-    [SerializeField] public GameObject wheelControl;
+    [SerializeField] public WheelControl wheelControl;
 
     // Codigo
 
@@ -46,6 +46,7 @@ public class PlayerMovement : MonoBehaviour
     {
         WeaponEquip = 0;
         WeaponDisplay = GameObject.FindGameObjectWithTag("WeaponDisplay").GetComponent<WeaponDisplay>();
+        wheelControl = GameObject.FindGameObjectWithTag("WheelControl").GetComponent<WheelControl>();
     }
 
     void Update()
@@ -91,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
         {
             lastGroundTime = 0.1f;
         }
-        if (Input.GetButtonDown("Jump") && isGrounded())
+        if (Input.GetButtonDown("Jump") && isGrounded() && lastGroundTime==0.1f)
         {
             jump();
         }
@@ -238,7 +239,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.2f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer);
     }
 
     // Girar el personaje segun direccion

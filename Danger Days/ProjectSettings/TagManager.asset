@@ -8,6 +8,7 @@ TagManager:
   - Draculoid
   - Carbon
   - WeaponDisplay
+  - WheelControl
   layers:
   - Default
   - TransparentFX
