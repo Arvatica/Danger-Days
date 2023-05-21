@@ -37,8 +37,22 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameObject RifleBullet;
     [SerializeField] GameObject BazucaBullet;
 
+    [Header("ShootAnims")]
+    [SerializeField] GameObject PistolShoot;
+    [SerializeField] GameObject RifleShoot;
+    [SerializeField] GameObject BazucaShoot;
+
     [Header("Other")]
     [SerializeField] public WheelControl wheelControl;
+
+    [Header("Animaciones&Objs")]
+    [SerializeField] GameObject SideRig;
+    [SerializeField] Animator SideAnimator;
+    [SerializeField] GameObject FrontRig;
+    [SerializeField] Animator FrontAnimator;
+
+
+
 
     // Codigo
 
@@ -47,12 +61,14 @@ public class PlayerMovement : MonoBehaviour
         WeaponEquip = 0;
         WeaponDisplay = GameObject.FindGameObjectWithTag("WeaponDisplay").GetComponent<WeaponDisplay>();
         wheelControl = GameObject.FindGameObjectWithTag("WheelControl").GetComponent<WheelControl>();
+        SideAnimator.SetInteger("WeaponEquip", 0);
     }
 
     void Update()
     {
 
         // Weapon Wheel
+
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -85,6 +101,16 @@ public class PlayerMovement : MonoBehaviour
 
         lastGroundTime -= Time.deltaTime;
         moveInput = Input.GetAxisRaw("Horizontal");
+        if (moveInput!=0)
+        {
+            SideAnimator.SetBool("IsMoving", true);
+            FrontAnimator.SetBool("IsMoving", true);
+        }
+        if (moveInput == 0)
+        {
+            SideAnimator.SetBool("IsMoving", false);
+            FrontAnimator.SetBool("IsMoving", false);
+        }
 
         // Salto
 
@@ -120,7 +146,7 @@ public class PlayerMovement : MonoBehaviour
     {
         WeaponEquip = WeaponActive;
         WeaponDisplay.sort();
-
+        SideAnimator.SetInteger("WeaponEquip", WeaponEquip);
     }
 
     // Disparo
@@ -131,6 +157,7 @@ public class PlayerMovement : MonoBehaviour
         {
             case 0:
                 Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
+                Instantiate(PistolShoot, pistolPoint.position, pistolPoint.rotation);
                 break;
             case 1:
                 Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
@@ -141,6 +168,7 @@ public class PlayerMovement : MonoBehaviour
                     Data.bazucaAmmo -= 1;
                     WeaponDisplay.Quantity.text = "" + Data.bazucaAmmo;
                     Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
+                    Instantiate(BazucaShoot, bazucaPoint.position, bazucaPoint.rotation);
                 }
                 break;
         }
