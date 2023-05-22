@@ -13,6 +13,7 @@ TagManager:
   - WoodDoor
   - Machine
   - Pause
+  - MachineGame
   layers:
   - Default
   - TransparentFX

@@ -9,13 +9,16 @@ public class ExpendedoraData : MonoBehaviour
 
     [HideInInspector] public PlayerData Data;
 
+    [Header("Carbons")]
+    public TMP_Text carbonsText;
+
+
     [Header("Tabs")]
 
     public TMP_Text Item1;
     public TMP_Text Item2;
     public TMP_Text Item3;
     public TMP_Text Item4;
-    public TMP_Text Item5;
 
     [Header("Objetos")]
 
@@ -23,7 +26,6 @@ public class ExpendedoraData : MonoBehaviour
     public TMP_Text item2;
     public TMP_Text item3;
     public TMP_Text item4;
-    public TMP_Text item5;
 
     [Header("Precios")]
 
@@ -32,7 +34,6 @@ public class ExpendedoraData : MonoBehaviour
     public int Bazuca;
     public int Bidon;
     public int Pistola;
-
 
     void Awake()
     {
@@ -46,10 +47,12 @@ public class ExpendedoraData : MonoBehaviour
         item3.text = "Total: $" + Bazuca;
         Item4.text = "$" + Bidon;
         item4.text = "Total: $" + Bidon;
-        Item5.text = "$" + Pistola;
-        item5.text = "Total: $" + Pistola;
     }
 
+    void Update()
+    {
+        carbonsText.text = "$" + Data.Carbons;
+    }
 
     public void buyXenitio()
     {

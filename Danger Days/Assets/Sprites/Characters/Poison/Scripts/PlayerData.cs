@@ -13,10 +13,12 @@ public class PlayerData : MonoBehaviour
     [Header("Objects")]
     public int Carbons;
     public int Gasoline;
+    public int GasolineToPickUp;
     public int Xenitio;
     public int XenitioHeal;
     public int Voltageno;
     public int VoltagenoHeal;
+
 
     [Header("MaxShit")]
     public int maxXenitio;

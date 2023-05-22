@@ -55,6 +55,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public WheelControl wheelControl;
     [SerializeField] public GameObject PauseMenu;
     [SerializeField] bool PauseOpen = false;
+    [SerializeField] public GameObject Machine;
+    [SerializeField] bool MachineOpen = false;
+    [SerializeField] public bool MachineOpenable = false;
 
     [Header("Animaciones&Objs")]
     [SerializeField] GameObject SideRig;
@@ -75,10 +78,24 @@ public class PlayerMovement : MonoBehaviour
         SideAnimator.SetInteger("WeaponEquip", 0);
         PauseMenu = GameObject.FindGameObjectWithTag("Pause");
         PauseMenu.SetActive(PauseOpen);
+        Machine = GameObject.FindGameObjectWithTag("Machine");
+        Machine.SetActive(MachineOpen);
     }
 
     void Update()
     {
+
+        // Maquina Exp
+
+        if (MachineOpenable)
+        {
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                MachineOpen = !MachineOpen;
+                Machine.SetActive(MachineOpen);
+            }
+        }
+
 
         // Abrir cerrar menu
 
@@ -389,11 +406,12 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    // FUncion para morir // Destruir
+    // Funcion para morir // Destruir
 
     void Die()
     {
         Destroy(gameObject);
     }
+
 
 }
