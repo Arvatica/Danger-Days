@@ -14,6 +14,9 @@ public class PlayerPick : MonoBehaviour
             case "Carbon":
                 Destroy(Touch.gameObject);
                 break;
+            case "Gasoline":
+                Destroy(Touch.gameObject);
+                break;
         }
     }
 }

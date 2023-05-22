@@ -12,10 +12,14 @@ public class DraculoidMovement : MonoBehaviour
     private float timer;
     private float timer2;
 
+
     // Config
 
     [Header("RigidBody")]
     [SerializeField] Rigidbody2D draculoidRB;
+
+    [Header("Animator")]
+    [SerializeField] Animator DracAnimator;
 
     [Header("Checks")]
     [SerializeField] Transform pistolPoint;
@@ -43,11 +47,14 @@ public class DraculoidMovement : MonoBehaviour
 
         timer -= Time.deltaTime;
 
+        DracAnimator.SetInteger("Weapon", Data.WeaponEquip);
+
         if (distance < Data.PistolRadious)
         {
             timer -= Time.deltaTime;
             Data.WeaponEquip = 0;
             StopCoroutine(rifleShoot());
+
 
             if (timer < 0)
             {

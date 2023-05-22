@@ -18,6 +18,11 @@ public class PlayerMovement : MonoBehaviour
 
     private int ObjectEquip = 0;
 
+    private float timeWhenAllowedNextShoot = 0f;
+
+    private float timeBetweenShooting = 0.25f;
+
+
     // Config
 
     [Header("RigidBody")]
@@ -28,6 +33,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Transform pistolPoint;
     [SerializeField] Transform riflePoint;
     [SerializeField] Transform bazucaPoint;
+    [SerializeField] Transform pistolPointFront;
+    [SerializeField] Transform riflePointFront;
+    [SerializeField] Transform bazucaPointFront;
+
 
     [Header("Layer & Tags")]
     [SerializeField] LayerMask groundLayer;
@@ -117,18 +126,22 @@ public class PlayerMovement : MonoBehaviour
         if (isGrounded())
         {
             lastGroundTime = 0.1f;
+            FrontAnimator.SetBool("IsJumping", false);
+            SideAnimator.SetBool("IsJumping", false);
         }
         if (Input.GetButtonDown("Jump") && isGrounded() && lastGroundTime==0.1f)
         {
             jump();
         }
-
-        // Disparo
-
-        if (Input.GetButtonDown("Fire1"))
+        if (!isGrounded())
         {
-            Shoot();
+            FrontAnimator.SetBool("IsJumping", true);
+            SideAnimator.SetBool("IsJumping", true);
         }
+
+        // Check para poder disparar
+
+        checkIfShouldShoot();
 
         // Flip
 
@@ -140,6 +153,20 @@ public class PlayerMovement : MonoBehaviour
         Movement();
     }
 
+    // Disparo
+
+    void checkIfShouldShoot()
+    {
+        if (timeWhenAllowedNextShoot <= Time.time)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                timeWhenAllowedNextShoot = Time.time + timeBetweenShooting;
+            }
+        }
+    }
+
     // Receptor de seleccion de arma
 
     public void WeaponActive(int WeaponActive)
@@ -147,6 +174,7 @@ public class PlayerMovement : MonoBehaviour
         WeaponEquip = WeaponActive;
         WeaponDisplay.sort();
         SideAnimator.SetInteger("WeaponEquip", WeaponEquip);
+        FrontAnimator.SetInteger("WeaponEquip", WeaponEquip);
     }
 
     // Disparo
@@ -156,23 +184,78 @@ public class PlayerMovement : MonoBehaviour
         switch (WeaponEquip)
         {
             case 0:
-                Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
-                Instantiate(PistolShoot, pistolPoint.position, pistolPoint.rotation);
+                timeBetweenShooting = 0.6f;
+                if (moveInput != 0)
+                {
+                    Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
+                    Instantiate(PistolShoot, pistolPoint.position, pistolPoint.rotation, pistolPoint);
+                }
+                if (moveInput == 0)
+                {
+                    StartCoroutine(ShootFrontal());
+                }
                 break;
             case 1:
-                Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
+                timeBetweenShooting = 0.2f;
+                if (moveInput != 0)
+                {
+                    Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
+                    Instantiate(RifleShoot, riflePoint.position, riflePoint.rotation, riflePoint);
+                }
+                if (moveInput == 0)
+                {
+                    StartCoroutine(ShootFrontal());
+                }
                 break;
             case 3:
+                timeBetweenShooting = 0.8f;
                 if (Data.bazucaAmmo > 0)
                 {
                     Data.bazucaAmmo -= 1;
                     WeaponDisplay.Quantity.text = "" + Data.bazucaAmmo;
-                    Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
-                    Instantiate(BazucaShoot, bazucaPoint.position, bazucaPoint.rotation);
+                    if (moveInput != 0)
+                    {
+                        Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
+                        Instantiate(BazucaShoot, bazucaPoint.position, bazucaPoint.rotation, bazucaPoint);
+                    }
+                    if (moveInput == 0)
+                    {
+                        StartCoroutine(ShootFrontal());
+                    }
+                    
                 }
                 break;
         }
     }
+
+
+
+    //Delay para disparo frontal
+
+    IEnumerator ShootFrontal()
+    {
+        FrontAnimator.SetBool("IsShooting", true);
+        yield return new WaitForSeconds(0.1f);
+        switch (WeaponEquip)
+        {
+            case 0:
+                Instantiate(PistolBullet, pistolPointFront.position, pistolPointFront.rotation);
+                Instantiate(PistolShoot, pistolPointFront.position, pistolPointFront.rotation, pistolPointFront);
+                break;
+            case 1:
+                Instantiate(RifleBullet, riflePointFront.position, riflePointFront.rotation);
+                Instantiate(RifleShoot, riflePointFront.position, riflePointFront.rotation, riflePointFront);
+                break;
+            case 3:
+                Instantiate(BazucaBullet, bazucaPointFront.position, bazucaPointFront.rotation);
+                Instantiate(BazucaShoot, bazucaPointFront.position, bazucaPointFront.rotation, bazucaPointFront);
+                break;
+        }
+        
+        yield return new WaitForSeconds(0.5f);
+        FrontAnimator.SetBool("IsShooting", false);
+    }
+
 
 
     // Cambio de objeto
