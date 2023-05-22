@@ -43,38 +43,38 @@ public class DraculoidMovement : MonoBehaviour
     {
         float distance = Vector2.Distance(transform.position, Poison.transform.position);
 
-        Debug.Log(distance);
-
         timer -= Time.deltaTime;
 
         DracAnimator.SetInteger("Weapon", Data.WeaponEquip);
 
-        if (distance < Data.PistolRadious)
+        if (distance < Data.Radious)
         {
-            timer -= Time.deltaTime;
-            Data.WeaponEquip = 0;
-            StopCoroutine(rifleShoot());
-
-
-            if (timer < 0)
+            if (Data.WeaponEquip == 0)
             {
-                timer = Data.timing;
-                Shoot();
+
+                timer -= Time.deltaTime;
+                StopCoroutine(rifleShoot());
+
+
+                if (timer < 0)
+                {
+                    timer = Data.timing;
+                    Shoot();
+                }
+
             }
-        }
-
-        else if (distance > Data.PistolRadious && distance < Data.RifleRadious)
-        {
-            timer -= Time.deltaTime;
-            Data.WeaponEquip = 1;
-
-            if (timer < 0)
+            else if (Data.WeaponEquip == 1)
             {
-                timer = Data.timing;
-                timer2 = 0;
-                StartCoroutine(rifleShoot());
+                timer -= Time.deltaTime;
+
+                if (timer < 0)
+                {
+                    timer = Data.timing;
+                    timer2 = 0;
+                    StartCoroutine(rifleShoot());
+                }
             }
-            // Poner corutina
+
         }
 
 
@@ -95,7 +95,7 @@ public class DraculoidMovement : MonoBehaviour
         {
             StopCoroutine(rifleShoot());
         }
-        
+
     }
 
     // Disparo

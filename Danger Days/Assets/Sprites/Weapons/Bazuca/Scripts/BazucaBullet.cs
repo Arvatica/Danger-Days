@@ -31,7 +31,12 @@ public class BazucaBullet : MonoBehaviour
 
             Instantiate(HitEffect, transform.position, transform.rotation);
             Destroy(gameObject);
+        }
 
+        if (BazucaHit.tag == "WoodDoor")
+        {
+            WoodenDoor Door = BazucaHit.GetComponent<WoodenDoor>();
+            Door.woodDamage();
         }
     }
 }

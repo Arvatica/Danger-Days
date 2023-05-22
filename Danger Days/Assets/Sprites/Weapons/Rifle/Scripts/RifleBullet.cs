@@ -32,7 +32,11 @@ public class RifleBullet : MonoBehaviour
 
             Instantiate(HitEffect, transform.position, transform.rotation);
             Destroy(gameObject);
-
+        }
+        if (RifleHit.tag == "WoodDoor")
+        {
+            WoodenDoor Door = RifleHit.GetComponent<WoodenDoor>();
+            Door.woodDamage();
         }
     }
 }

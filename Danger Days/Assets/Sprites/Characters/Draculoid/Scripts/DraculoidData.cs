@@ -14,8 +14,7 @@ public class DraculoidData : MonoBehaviour
 
     [Header("Disparos")]
 
-    public float PistolRadious;
-    public float RifleRadious;
+    public float Radious;
     public float timing;
     public int WeaponEquip;
 

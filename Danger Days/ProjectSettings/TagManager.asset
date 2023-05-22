@@ -10,6 +10,9 @@ TagManager:
   - WeaponDisplay
   - WheelControl
   - Gasoline
+  - WoodDoor
+  - Machine
+  - Pause
   layers:
   - Default
   - TransparentFX

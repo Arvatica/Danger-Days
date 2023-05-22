@@ -6,30 +6,14 @@ public class WoodenDoor : MonoBehaviour
 {
     [SerializeField] int ObjHealth;
     [SerializeField] Animator DoorAnim;
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public void woodDamage()
     {
+        ObjHealth -= 1;
+
         if (ObjHealth == 0)
         {
-            DoorAnim.SetBool("open", true);
+            DoorAnim.SetBool("Open", true);
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Bala"))
-        {
-            if (ObjHealth < 0)
-            {
-                ObjHealth -= 1;
-            }
-
-        }
-
     }
 }

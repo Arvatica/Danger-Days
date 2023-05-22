@@ -5,11 +5,14 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     [Header("Stats")]
-    public int MaxHealth;
     [HideInInspector] public int Health;
+    public int MaxHealth;
+    public int Score;
+
 
     [Header("Objects")]
     public int Carbons;
+    public int Gasoline;
     public int Xenitio;
     public int XenitioHeal;
     public int Voltageno;

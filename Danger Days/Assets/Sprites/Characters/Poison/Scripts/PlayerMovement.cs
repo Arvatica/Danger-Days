@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("Other")]
     [SerializeField] public WheelControl wheelControl;
+    [SerializeField] public GameObject PauseMenu;
+    [SerializeField] bool PauseOpen = false;
 
     [Header("Animaciones&Objs")]
     [SerializeField] GameObject SideRig;
@@ -71,13 +73,22 @@ public class PlayerMovement : MonoBehaviour
         WeaponDisplay = GameObject.FindGameObjectWithTag("WeaponDisplay").GetComponent<WeaponDisplay>();
         wheelControl = GameObject.FindGameObjectWithTag("WheelControl").GetComponent<WheelControl>();
         SideAnimator.SetInteger("WeaponEquip", 0);
+        PauseMenu = GameObject.FindGameObjectWithTag("Pause");
+        PauseMenu.SetActive(PauseOpen);
     }
 
     void Update()
     {
 
-        // Weapon Wheel
+        // Abrir cerrar menu
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            PauseOpen = !PauseOpen;
+            PauseMenu.SetActive(PauseOpen);
+        }
+
+        // Weapon Wheel
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
@@ -110,7 +121,7 @@ public class PlayerMovement : MonoBehaviour
 
         lastGroundTime -= Time.deltaTime;
         moveInput = Input.GetAxisRaw("Horizontal");
-        if (moveInput!=0)
+        if (moveInput != 0)
         {
             SideAnimator.SetBool("IsMoving", true);
             FrontAnimator.SetBool("IsMoving", true);
@@ -129,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
             FrontAnimator.SetBool("IsJumping", false);
             SideAnimator.SetBool("IsJumping", false);
         }
-        if (Input.GetButtonDown("Jump") && isGrounded() && lastGroundTime==0.1f)
+        if (Input.GetButtonDown("Jump") && isGrounded() && lastGroundTime == 0.1f)
         {
             jump();
         }
@@ -222,7 +233,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         StartCoroutine(ShootFrontal());
                     }
-                    
+
                 }
                 break;
         }
@@ -251,7 +262,7 @@ public class PlayerMovement : MonoBehaviour
                 Instantiate(BazucaShoot, bazucaPointFront.position, bazucaPointFront.rotation, bazucaPointFront);
                 break;
         }
-        
+
         yield return new WaitForSeconds(0.5f);
         FrontAnimator.SetBool("IsShooting", false);
     }
