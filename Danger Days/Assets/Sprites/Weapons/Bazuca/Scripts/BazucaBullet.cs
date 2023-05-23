@@ -9,6 +9,7 @@ public class BazucaBullet : MonoBehaviour
 
     [Header("Adicionales")]
     [SerializeField] public GameObject HitEffect;
+    [SerializeField] public GameObject Explosion;
 
     void Awake()
     {
@@ -29,7 +30,8 @@ public class BazucaBullet : MonoBehaviour
                 Draculoid.getDamage(Data.bazucaBulletDamage);
             }
 
-            Instantiate(HitEffect, transform.position, transform.rotation);
+            Instantiate(Explosion, transform.position, transform.rotation);
+            FindObjectOfType<AudioManager>().Play("Explosion");
             Destroy(gameObject);
         }
 
@@ -38,5 +40,20 @@ public class BazucaBullet : MonoBehaviour
             WoodenDoor Door = BazucaHit.GetComponent<WoodenDoor>();
             Door.woodDamage();
         }
+
+        if (BazucaHit.tag == "Mannequin")
+        {
+            Destroy(BazucaHit.gameObject);
+        }
+        if (BazucaHit.tag == "Barrel")
+        {
+            Barrel Door = BazucaHit.GetComponent<Barrel>();
+            Door.woodDamage();
+        }
+    }
+    void OnBecameInvisible()
+    {
+        enabled = false;
+        Destroy(gameObject);
     }
 }

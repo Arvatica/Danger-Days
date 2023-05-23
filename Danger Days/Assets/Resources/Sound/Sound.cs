@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Audio;
 using UnityEngine;
 
 [System.Serializable]
-public class Sound : MonoBehaviour
+public class Sound
 {
-    public string SoundName;
+    public string name;
     public AudioClip clip;
 
     [Range(0f, 1f)]

@@ -32,9 +32,14 @@ public class EPistolBullet : MonoBehaviour
     {
         if (PistolHit.tag != "Carbon" && PistolHit.name != "EPistolaBala(Clone)" && PistolHit.name != "ERifleBala(Clone)" && PistolHit.tag != "Draculoid")
         {
-            if (Player != null)
+            if (Player != null && PistolHit.tag == "Player")
             {
                 Player.getDamage(Data.pistolBulletDamage);
+            }
+            if (PistolHit.tag == "Barrel")
+            {
+                Barrel Door = PistolHit.GetComponent<Barrel>();
+                Door.woodDamage();
             }
 
             Instantiate(HitEffect, transform.position, transform.rotation);

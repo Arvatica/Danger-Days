@@ -38,6 +38,21 @@ public class PistolBullet : MonoBehaviour
             WoodenDoor Door = PistolHit.GetComponent<WoodenDoor>();
             Door.woodDamage();
         }
+        if (PistolHit.tag == "Mannequin")
+        {
+            Destroy(PistolHit.gameObject);
+        }
+        if (PistolHit.tag == "Barrel")
+        {
+            Barrel Door = PistolHit.GetComponent<Barrel>();
+            Door.woodDamage();
+        }
+    }
+
+    void OnBecameInvisible()
+    {
+        enabled = false;
+        Destroy(gameObject);
     }
 
 }

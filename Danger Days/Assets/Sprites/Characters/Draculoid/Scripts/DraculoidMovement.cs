@@ -106,9 +106,11 @@ public class DraculoidMovement : MonoBehaviour
         {
             case 0:
                 Instantiate(EPistolBullet, pistolPoint.position, Quaternion.identity);
+                FindObjectOfType<AudioManager>().Play("Shoot");
                 break;
             case 1:
                 Instantiate(ERifleBullet, riflePoint.position, Quaternion.identity);
+                FindObjectOfType<AudioManager>().Play("RifleShoot");
                 break;
         }
     }
@@ -151,6 +153,7 @@ public class DraculoidMovement : MonoBehaviour
     public void getDamage(int Damage)
     {
         Data.Health -= Damage;
+        FindObjectOfType<AudioManager>().Play("Hurt");
 
         if (Data.Health <= 0)
         {

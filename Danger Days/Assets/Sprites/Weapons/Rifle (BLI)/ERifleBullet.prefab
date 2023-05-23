@@ -29,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 7861053622511457381}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 7.602, y: -23.474, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -147,5 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data: {fileID: 0}
+  Player: {fileID: 0}
   ERifleRB: {fileID: 0}
   HitEffect: {fileID: 3487783948913544864, guid: 56cc7eb162c705e4f815acecfce0ecd9, type: 3}
+  Poison: {fileID: 0}

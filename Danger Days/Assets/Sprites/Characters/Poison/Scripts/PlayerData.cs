@@ -7,13 +7,16 @@ public class PlayerData : MonoBehaviour
     [Header("Stats")]
     [HideInInspector] public int Health;
     public int MaxHealth;
-    public int Score;
+    public float Score;
+
+    [Header("DañosExtra")]
+    public int barreldmg;
 
 
     [Header("Objects")]
-    public int Carbons;
-    public int Gasoline;
-    public int GasolineToPickUp;
+    public float Carbons;
+    public float Gasoline;
+    public float GasolineToPickUp;
     public int Xenitio;
     public int XenitioHeal;
     public int Voltageno;

@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 2373832035386884802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -22.861, y: -2.624, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   Data: {fileID: 0}
   BazucaRB: {fileID: 0}
   HitEffect: {fileID: 1939156067413661201, guid: 3e0542313c564674ebac307c00cb6015, type: 3}
+  Explosion: {fileID: 4757405687469283893, guid: d292f03ffbabf2246a2b5783e8f14243, type: 3}
 --- !u!50 &2373832035386884804
 Rigidbody2D:
   serializedVersion: 4

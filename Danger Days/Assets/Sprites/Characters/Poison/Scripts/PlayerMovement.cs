@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
     private float timeBetweenShooting = 0.25f;
 
 
+
     // Config
 
     [Header("RigidBody")]
@@ -58,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public GameObject Machine;
     [SerializeField] bool MachineOpen = false;
     [SerializeField] public bool MachineOpenable = false;
+    [SerializeField] public bool CarroOpenable = false;
+    [SerializeField] public GameObject DeadMenu;
+
+
 
     [Header("Animaciones&Objs")]
     [SerializeField] GameObject SideRig;
@@ -80,6 +85,8 @@ public class PlayerMovement : MonoBehaviour
         PauseMenu.SetActive(PauseOpen);
         Machine = GameObject.FindGameObjectWithTag("Machine");
         Machine.SetActive(MachineOpen);
+        DeadMenu = GameObject.FindGameObjectWithTag("DeadScreen");
+        DeadMenu.SetActive(false);
     }
 
     void Update()
@@ -92,7 +99,20 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 MachineOpen = !MachineOpen;
+                PauseOpen = !PauseOpen;
                 Machine.SetActive(MachineOpen);
+
+            }
+
+        }
+
+        // Carro
+
+        if (CarroOpenable)
+        {
+            if (Input.GetKeyDown(KeyCode.F) && Data.GasolineToPickUp == Data.Gasoline)
+            {
+                Debug.Log("Level End");
             }
         }
 
@@ -103,6 +123,17 @@ public class PlayerMovement : MonoBehaviour
         {
             PauseOpen = !PauseOpen;
             PauseMenu.SetActive(PauseOpen);
+        }
+
+        if (PauseOpen == true)
+        {
+            Time.timeScale = 0;
+        }
+
+        if (PauseOpen == false)
+        {
+            Time.timeScale = 1;
+
         }
 
         // Weapon Wheel
@@ -160,6 +191,7 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded() && lastGroundTime == 0.1f)
         {
             jump();
+            FindObjectOfType<AudioManager>().Play("Jump");
         }
         if (!isGrounded())
         {
@@ -217,6 +249,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
                     Instantiate(PistolShoot, pistolPoint.position, pistolPoint.rotation, pistolPoint);
+                    FindObjectOfType<AudioManager>().Play("Shoot");
                 }
                 if (moveInput == 0)
                 {
@@ -229,6 +262,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
                     Instantiate(RifleShoot, riflePoint.position, riflePoint.rotation, riflePoint);
+                    FindObjectOfType<AudioManager>().Play("RifleShoot");
                 }
                 if (moveInput == 0)
                 {
@@ -245,6 +279,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         Instantiate(BazucaBullet, bazucaPoint.position, bazucaPoint.rotation);
                         Instantiate(BazucaShoot, bazucaPoint.position, bazucaPoint.rotation, bazucaPoint);
+                        FindObjectOfType<AudioManager>().Play("BazucaShoot");
                     }
                     if (moveInput == 0)
                     {
@@ -269,14 +304,17 @@ public class PlayerMovement : MonoBehaviour
             case 0:
                 Instantiate(PistolBullet, pistolPointFront.position, pistolPointFront.rotation);
                 Instantiate(PistolShoot, pistolPointFront.position, pistolPointFront.rotation, pistolPointFront);
+                FindObjectOfType<AudioManager>().Play("Shoot");
                 break;
             case 1:
                 Instantiate(RifleBullet, riflePointFront.position, riflePointFront.rotation);
                 Instantiate(RifleShoot, riflePointFront.position, riflePointFront.rotation, riflePointFront);
+                FindObjectOfType<AudioManager>().Play("RifleShoot");
                 break;
             case 3:
                 Instantiate(BazucaBullet, bazucaPointFront.position, bazucaPointFront.rotation);
                 Instantiate(BazucaShoot, bazucaPointFront.position, bazucaPointFront.rotation, bazucaPointFront);
+                FindObjectOfType<AudioManager>().Play("BazucaShoot");
                 break;
         }
 
@@ -370,7 +408,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && playerRB.velocity.y > 0f)
         {
-            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);        
         }
     }
 
@@ -397,6 +435,7 @@ public class PlayerMovement : MonoBehaviour
     public void getDamage(int Damage)
     {
         Data.Health -= Damage;
+        FindObjectOfType<AudioManager>().Play("Hurt");
         Healthbar healthbar = GameObject.FindGameObjectWithTag("HealthBar").GetComponent<Healthbar>();
         healthbar.setHealth();
 
@@ -410,7 +449,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        DeadMenu.SetActive(true);
+        PauseOpen = !PauseOpen;
     }
 
 

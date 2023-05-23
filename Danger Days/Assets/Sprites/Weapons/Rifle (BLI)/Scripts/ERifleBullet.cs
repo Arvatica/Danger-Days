@@ -32,9 +32,14 @@ public class ERifleBullet : MonoBehaviour
     {
         if (RifleHit.tag != "Carbon" && RifleHit.name != "EPistolaBala(Clone)" && RifleHit.name != "ERifleBala(Clone)" && RifleHit.tag != "Draculoid")
         {
-            if (Player != null)
+            if (Player != null && RifleHit.tag == "Player")
             {
                 Player.getDamage(Data.rifleBulletDamage);
+            }
+            if (RifleHit.tag == "Barrel")
+            {
+                Barrel Door = RifleHit.GetComponent<Barrel>();
+                Door.woodDamage();
             }
 
             Instantiate(HitEffect, transform.position, transform.rotation);

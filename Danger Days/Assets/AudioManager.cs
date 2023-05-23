@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
-using System;
 using UnityEngine.Audio;
 using UnityEngine;
+using System;
+
 public class AudioManager : MonoBehaviour
 {
     public Sound[] sounds;

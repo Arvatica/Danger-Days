@@ -7,6 +7,8 @@ public class DraculoidData : MonoBehaviour
     [Header("Stats")]
     public int Health;
 
+    [Header("DañosExtra")]
+    public int barreldmg;
 
     [Header("Movement")]
     public float draculoidSpeed;

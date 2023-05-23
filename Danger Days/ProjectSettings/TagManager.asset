@@ -14,6 +14,13 @@ TagManager:
   - Machine
   - Pause
   - MachineGame
+  - Chronomita
+  - Mannequin
+  - Barrel
+  - Player1
+  - Draculoid1
+  - Pinchos
+  - DeadScreen
   layers:
   - Default
   - TransparentFX
