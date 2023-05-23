@@ -22,6 +22,8 @@ public class BazucaBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D BazucaHit)
     {
+        FindObjectOfType<AudioManager>().Play("BulletHit");
+
         if (BazucaHit.tag != "MachineGame" && BazucaHit.tag != "Carbon" && BazucaHit.name != "PistolaBala(Clone)" && BazucaHit.name != "RifleBala(Clone)" && BazucaHit.name != "BazucaBala(Clone)" && BazucaHit.tag != "Player")
         {
             DraculoidMovement Draculoid = BazucaHit.GetComponent<DraculoidMovement>();

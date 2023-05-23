@@ -13,6 +13,7 @@ public class WoodenDoor : MonoBehaviour
         if (ObjHealth == 0)
         {
             DoorAnim.SetBool("Open", true);
+            FindObjectOfType<AudioManager>().Play("Door");
         }
     }
 }

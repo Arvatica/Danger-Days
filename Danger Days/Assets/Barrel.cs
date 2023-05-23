@@ -9,6 +9,7 @@ public class Barrel : MonoBehaviour
     public void woodDamage()
     {
         ObjHealth -= 1;
+        //FindObjectOfType<AudioManager>().Play("BulletHit");
 
         if (ObjHealth == 0)
         {

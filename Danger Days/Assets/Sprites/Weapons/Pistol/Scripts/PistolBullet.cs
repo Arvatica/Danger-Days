@@ -21,6 +21,8 @@ public class PistolBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D PistolHit)
     {
+        FindObjectOfType<AudioManager>().Play("BulletHit");
+
         DraculoidMovement Draculoid = PistolHit.GetComponent<DraculoidMovement>();
         if (PistolHit.tag != "MachineGame" && PistolHit.tag != "Carbon" && PistolHit.name != "PistolaBala(Clone)" && PistolHit.name != "RifleBala(Clone)" && PistolHit.name != "BazucaBala(Clone)" && PistolHit.tag != "Player")
         {
