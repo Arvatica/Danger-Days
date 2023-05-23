@@ -30,7 +30,7 @@ public class TabGroup : MonoBehaviour
         if (selectedTab == null || button != selectedTab)
         {
             button.BG.sprite = Hover;
-            button.text.color = new Color32(255, 59, 59, 255);
+            button.text.color = new Color32(255, 173, 3, 255);
         }
     }
     public void OnTabExit(TabControl button)
@@ -42,7 +42,7 @@ public class TabGroup : MonoBehaviour
         selectedTab = button;
         ResetTabs();
         button.BG.sprite = Selected;
-        button.text.color = new Color32(255, 255, 6, 255);
+        button.text.color = new Color32(54, 227, 182, 255);
     }
 
     public void ResetTabs()
@@ -51,7 +51,7 @@ public class TabGroup : MonoBehaviour
         {
             if (selectedTab != null && button == selectedTab) { continue; }
             button.BG.sprite = Idle;
-            button.text.color = new Color32(255, 59, 59, 255);
+            button.text.color = new Color32(255, 173, 3, 255);
         }
 
     }

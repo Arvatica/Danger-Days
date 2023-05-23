@@ -31,7 +31,7 @@ public class TabGroup2 : MonoBehaviour
         if (selectedTab == null || button != selectedTab)
         {
             button.BG.sprite = Hover;
-            button.text.color = new Color32(255, 59, 59, 255);
+            button.text.color = new Color32(255, 173, 3, 255);
         }
     }
     public void OnTabExit(TabControl2 button)
@@ -43,7 +43,7 @@ public class TabGroup2 : MonoBehaviour
         selectedTab = button;
         ResetTabs();
         button.BG.sprite = Selected;
-        button.text.color = new Color32(255, 255, 6, 255);
+        button.text.color = new Color32(54, 227, 182, 255);
         int index = button.transform.GetSiblingIndex();
         for (int i = 0; i < swapObjects.Count; i++)
         {
@@ -64,7 +64,7 @@ public class TabGroup2 : MonoBehaviour
         {
             if (selectedTab != null && button == selectedTab) { continue; }
             button.BG.sprite = Idle;
-            button.text.color = new Color32(255, 59, 59, 255);
+            button.text.color = new Color32(255, 173, 3, 255);
         }
 
     }

@@ -17,6 +17,7 @@ public class TabControl : MonoBehaviour, IPointerClickHandler, IPointerEnterHand
     {
         BG = GetComponent<Image>();
         tabGroup.Subscribe(this);
+        tabGroup.ResetTabs();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
