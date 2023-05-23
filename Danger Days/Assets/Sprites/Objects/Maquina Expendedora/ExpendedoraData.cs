@@ -43,10 +43,10 @@ public class ExpendedoraData : MonoBehaviour
         item1.text = "Total: $" + Xenitio;
         Item2.text = "$" + Voltageno;
         item2.text = "Total: $" + Voltageno;
-        Item3.text = "$" + Bazuca;
-        item3.text = "Total: $" + Bazuca;
-        Item4.text = "$" + Bidon;
-        item4.text = "Total: $" + Bidon;
+        Item3.text = "$" + Bidon;
+        item3.text = "Total: $" + Bidon;
+        Item4.text = "$" + Bazuca;
+        item4.text = "Total: $" + Bazuca;
     }
 
     void Update()
