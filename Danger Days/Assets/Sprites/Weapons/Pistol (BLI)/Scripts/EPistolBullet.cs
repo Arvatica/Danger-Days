@@ -30,7 +30,7 @@ public class EPistolBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D PistolHit)
     {
-        if (PistolHit.tag != "Carbon" && PistolHit.name != "EPistolaBala(Clone)" && PistolHit.name != "ERifleBala(Clone)" && PistolHit.tag != "Draculoid")
+        if (PistolHit.tag != "Carbon" && PistolHit.name != "EPistolaBala(Clone)" && PistolHit.name != "ERifleBala(Clone)" && PistolHit.tag != "Draculoid" && PistolHit.tag != "Draculoid1")
         {
             if (Player != null && PistolHit.tag == "Player")
             {
