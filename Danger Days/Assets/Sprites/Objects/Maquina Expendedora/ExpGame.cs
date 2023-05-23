@@ -12,5 +12,12 @@ public class ExpGame : MonoBehaviour
             Movement.MachineOpenable = true;
         }
     }
-   
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            PlayerMovement Movement = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
+            Movement.MachineOpenable = false;
+        }
+    }
 }

@@ -5,13 +5,12 @@ using UnityEngine;
 
 public class DeadMenu : MonoBehaviour
 {
-
-    // Update is called once per frame
+    public int currentScene;
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(currentScene);
         }
     }
 }
