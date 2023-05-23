@@ -100,3 +100,8 @@ MonoBehaviour:
     volume: 0.923
     pitch: 1
     source: {fileID: 0}
+  - name: DracDie
+    clip: {fileID: 8300000, guid: 90b9d64abd65eb34a9befb58b4b84219, type: 3}
+    volume: 0.923
+    pitch: 1
+    source: {fileID: 0}
