@@ -15,38 +15,40 @@ public class PlayerPick : MonoBehaviour
 
     public PlayerData Data;
 
+    public Collider2D Cemen;
+
     void Start()
     {
         Data = GetComponent<PlayerData>();
         playermovement = GetComponent<PlayerMovement>();
     }
 
-    private void OnTriggerEnter2D(Collider2D Touch)
+    public void OnTriggerEnter2D(Collider2D Touch)
     {
 
-            switch (Touch.tag)
-            {
-                case "Carbon":
-                    Data.Carbons += ValueCarbon;
-                    Data.Score += ScoreCarbon;
-                    Destroy(Touch.gameObject);
-                    FindObjectOfType<AudioManager>().Play("Coin");
-                    break;
-                case "Gasoline":
-                    Data.Gasoline += ValueGasoline;
-                    Data.Score += ScoreGasoline;
-                    Destroy(Touch.gameObject);
-                    FindObjectOfType<AudioManager>().Play("Collectible");
-                    break;
-                case "Chronomita":
-                    Data.Gasoline += ValueGasoline;
-                    Data.Score += ScoreCarbon;
-                    Destroy(Touch.gameObject);
-                    FindObjectOfType<AudioManager>().Play("Collectible");
-                    break;
-                case "Pinchos":
-                    playermovement.getDamage(Data.MaxHealth);
-                    break;
+        switch (Touch.tag)
+        {
+            case "Carbon":
+                Data.Carbons += ValueCarbon;
+                Data.Score += ScoreCarbon;
+                Destroy(Touch.gameObject);
+                FindObjectOfType<AudioManager>().Play("Coin");
+                break;
+            case "Gasoline":
+                Data.Gasoline += ValueGasoline;
+                Data.Score += ScoreGasoline;
+                Destroy(Touch.gameObject);
+                FindObjectOfType<AudioManager>().Play("Collectible");
+                break;
+            case "Chronomita":
+                Data.Gasoline += ValueGasoline;
+                Data.Score += ScoreCarbon;
+                Destroy(Touch.gameObject);
+                FindObjectOfType<AudioManager>().Play("Collectible");
+                break;
+            case "Pinchos":
+                playermovement.getDamage(Data.MaxHealth);
+                break;
         }
     }
 }

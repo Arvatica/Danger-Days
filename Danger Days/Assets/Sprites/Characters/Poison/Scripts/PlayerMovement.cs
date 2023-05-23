@@ -61,6 +61,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] public bool MachineOpenable = false;
     [SerializeField] public bool CarroOpenable = false;
     [SerializeField] public GameObject DeadMenu;
+    [SerializeField] public GameObject WinMenu;
 
 
 
@@ -87,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
         Machine.SetActive(MachineOpen);
         DeadMenu = GameObject.FindGameObjectWithTag("DeadScreen");
         DeadMenu.SetActive(false);
+        WinMenu = GameObject.FindGameObjectWithTag("WinScreen");
+        WinMenu.SetActive(false);
     }
 
     void Update()
@@ -113,6 +116,7 @@ public class PlayerMovement : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F) && Data.GasolineToPickUp == Data.Gasoline)
             {
                 Debug.Log("Level End");
+                Win();
             }
         }
 
@@ -408,7 +412,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonUp("Jump") && playerRB.velocity.y > 0f)
         {
-            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);        
+            playerRB.velocity = new Vector2(playerRB.velocity.x, playerRB.velocity.y * 0.5f);
         }
     }
 
@@ -453,5 +457,10 @@ public class PlayerMovement : MonoBehaviour
         PauseOpen = !PauseOpen;
     }
 
+    public void Win()
+    {
+        WinMenu.SetActive(true);
+        PauseOpen = !PauseOpen;
+    }
 
 }

@@ -21,6 +21,7 @@ TagManager:
   - Draculoid1
   - Pinchos
   - DeadScreen
+  - WinScreen
   layers:
   - Default
   - TransparentFX
