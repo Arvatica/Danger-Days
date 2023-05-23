@@ -248,7 +248,7 @@ public class PlayerMovement : MonoBehaviour
         switch (WeaponEquip)
         {
             case 0:
-                timeBetweenShooting = 0.6f;
+                timeBetweenShooting = 0.7f;
                 if (moveInput != 0)
                 {
                     Instantiate(PistolBullet, pistolPoint.position, pistolPoint.rotation);
@@ -261,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 break;
             case 1:
-                timeBetweenShooting = 0.2f;
+                timeBetweenShooting = 0.05f;
                 if (moveInput != 0)
                 {
                     Instantiate(RifleBullet, riflePoint.position, riflePoint.rotation);
@@ -274,7 +274,7 @@ public class PlayerMovement : MonoBehaviour
                 }
                 break;
             case 3:
-                timeBetweenShooting = 0.8f;
+                timeBetweenShooting = 0.9f;
                 if (Data.bazucaAmmo > 0)
                 {
                     Data.bazucaAmmo -= 1;
