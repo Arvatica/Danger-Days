@@ -165,6 +165,7 @@ public class DraculoidMovement : MonoBehaviour
 
     void Die()
     {
+        FindObjectOfType<AudioManager>().Play("DracDie");
         Destroy(gameObject);
     }
 
