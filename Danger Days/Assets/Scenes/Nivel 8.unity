@@ -1784,7 +1784,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-<<<<<<< HEAD
     - target: {fileID: 487077016, guid: 66face7f33b0a814ab6daf9585e6383b, type: 3}
       propertyPath: currentScene
       value: 8
@@ -1793,8 +1792,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
       objectReference: {fileID: 0}
-=======
->>>>>>> parent of 292087a (a)
     - target: {fileID: 8051286113349449557, guid: 66face7f33b0a814ab6daf9585e6383b, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -101176,11 +101173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5432564872529839052, guid: 9b7f51a182a8bae40abdafaae53cbcc4, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: -161.93845
-=======
-      value: -161.94054
->>>>>>> parent of 292087a (a)
       objectReference: {fileID: 0}
     - target: {fileID: 5432564872529839052, guid: 9b7f51a182a8bae40abdafaae53cbcc4, type: 3}
       propertyPath: m_LocalPosition.y
@@ -101443,11 +101436,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8487413009595895008, guid: 826f7c2f236b9754d9b84c272d646fa1, type: 3}
       propertyPath: m_LocalPosition.x
-<<<<<<< HEAD
       value: -161.93845
-=======
-      value: -161.94054
->>>>>>> parent of 292087a (a)
       objectReference: {fileID: 0}
     - target: {fileID: 8487413009595895008, guid: 826f7c2f236b9754d9b84c272d646fa1, type: 3}
       propertyPath: m_LocalPosition.y
