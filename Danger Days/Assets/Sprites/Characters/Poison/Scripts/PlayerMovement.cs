@@ -112,8 +112,8 @@ public class PlayerMovement : MonoBehaviour
         // Carro
 
         if (CarroOpenable)
-        {
-            if (Input.GetKeyDown(KeyCode.F) && Data.GasolineToPickUp == Data.Gasoline)
+        
+            if (Input.GetKeyDown(KeyCode.F) && Data.GasolineToPickUp <= Data.Gasoline)
             {
                 Debug.Log("Level End");
                 Win();
