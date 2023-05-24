@@ -178,7 +178,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3522054597757448286}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 30.25, y: -21.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -274,14 +274,14 @@ MonoBehaviour:
   barreldmg: 100
   draculoidSpeed: 2
   horizontal: 1
-  Radious: 10
+  Radious: 5
   timing: 8
   WeaponEquip: 0
   pistolBulletSpeed: 10
-  pistolBulletDamage: 5
+  pistolBulletDamage: 15
   rifleBulletSpeed: 20
   rifleBulletDamage: 5
-  rifleQuantity: 3
+  rifleQuantity: 4
   rifleAttackSpeed: 0.3
 --- !u!1001 &3522054596511000986
 PrefabInstance:
