@@ -625,7 +625,7 @@ MonoBehaviour:
   pistolBulletSpeed: 10
   pistolBulletDamage: 20
   rifleBulletSpeed: 25
-  rifleBulletDamage: 5
+  rifleBulletDamage: 10
   bazucaBulletSpeed: 5
   bazucaBulletDamage: 80
   bazucaMaxAmmo: 5
