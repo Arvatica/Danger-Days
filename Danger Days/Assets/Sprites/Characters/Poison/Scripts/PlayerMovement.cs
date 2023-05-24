@@ -112,13 +112,14 @@ public class PlayerMovement : MonoBehaviour
         // Carro
 
         if (CarroOpenable)
-        
+        { 
+
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("Level End");
                 Win();
             }
-        }
+    }
 
 
         // Abrir cerrar menu
